@@ -18,4 +18,8 @@ public class Dado {
 
         lbl.setIcon(imgDado);
     }
+
+    public int getNumero() {
+        return numero;
+    }
 }

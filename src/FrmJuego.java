@@ -97,10 +97,13 @@ public class FrmJuego extends JFrame {
     private Dado dado1, dado2;
     private Random r = new Random(); // suerte del juego
 
-    private int Lanzamientos, cenas;
+    private int lanzamientos, cenas;
 
     private void iniciar() {
-
+        lanzamientos = 0;
+        cenas = 0;
+        lblLanzamientos.setText(String.valueOf(lanzamientos));
+        lblCenas.setText(String.valueOf(cenas));
     }
 
     private void lanzar() {
@@ -110,7 +113,13 @@ public class FrmJuego extends JFrame {
         dado2.lanzar(r);
         dado2.mostrar(lblDado2);
 
-        Lanzamientos++;
-        lblLanzamientos.setText(String.valueOf(Lanzamientos));
+        lanzamientos++;
+        lblLanzamientos.setText(String.valueOf(lanzamientos));
+
+        if (dado1.getNumero() + dado2.getNumero() >= 11) {
+            cenas++;
+            lblCenas.setText(String.valueOf(cenas));
+        }
+
     }
 }
